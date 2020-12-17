@@ -2,18 +2,21 @@ import store from "../redux/store";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import Header from "./shared/Header";
-import Home from "./layout/Home";
-import NotFound from './layout/NotFound';
+import Main from "./static/Main";
+import First from "./static/First";
+import Second from "./static/Second";
+import NotFound from './static/NotFound';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-         
+          <Route exact path="/" component={Main} />
+
+          <Route exact path="/first" component={First} />
+          <Route exact path="/second" component={Second} />
+
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
